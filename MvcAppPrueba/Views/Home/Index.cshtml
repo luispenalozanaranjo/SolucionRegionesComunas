@@ -1,0 +1,14 @@
+﻿@model List<MvcAppPrueba.Models.RegionModel>
+
+<div class="container mt-5">
+    <h2 class="mb-4">Regiones</h2>
+    <ul class="list-group">
+        @foreach (var region in Model)
+        {
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                @region.Region
+                <a asp-action="Comuna" asp-route-idRegion="@region.IdRegion" asp-route-nombreRegion="@region.Region" class="btn btn-outline-primary btn-sm">Ver comunas</a>
+            </li>
+        }
+    </ul>
+</div>

@@ -1,0 +1,75 @@
+﻿@model MvcAppPrueba.Models.ComunaModel
+
+@{
+    ViewBag.Title = Model.IdComuna > 0 ? "Editar Comuna" : "Agregar Comuna";
+}
+
+<div class="container mt-5">
+    <h2>@ViewBag.Title - @ViewBag.NombreRegion</h2>
+
+    <form asp-controller="Home" asp-action="CrearComuna" method="post">
+        @Html.AntiForgeryToken()
+
+        <input type="hidden" name="IdRegion" value="@Model.IdRegion" />
+        <input type="hidden" name="IdComuna" value="@Model.IdComuna" />
+        <input type="hidden" name="NombreRegion" value="@ViewBag.NombreRegion" />
+
+        <div class="mb-3">
+            <label for="Comuna" class="form-label">Nombre de la Comuna</label>
+            <input type="text" class="form-control" id="Comuna" name="Comuna" value="@Model.Comuna" />
+            <span asp-validation-for="Comuna" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label for="InformacionAdicional" class="form-label">Información Adicional</label>
+            <textarea class="form-control" id="InformacionAdicional" name="InformacionAdicional" rows="6">@Model.InformacionAdicional</textarea>
+            <span asp-validation-for="InformacionAdicional" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary">
+            @(Model.IdComuna > 0 ? "Actualizar" : "Agregar")
+        </button>
+        <a asp-action="Comuna" asp-route-idRegion="@Model.IdRegion" asp-route-NombreRegion="@ViewBag.NombreRegion" class="btn btn-secondary">Volver</a>
+    </form>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+    <script>
+                const estructuraFija = `<Info>
+          <Superficie>0</Superficie>
+          <Poblacion Densidad="0">0</Poblacion>
+        </Info>`;
+
+                const textarea = document.getElementById("InformacionAdicional");
+                const idComuna = @Model.IdComuna;
+
+                document.addEventListener("DOMContentLoaded", function () {
+                    if (idComuna === 0 && textarea.value.trim() === "") {
+                        textarea.value = estructuraFija;
+                    }
+                });
+
+                textarea.addEventListener("input", function () {
+                    try {
+                        const parser = new DOMParser();
+                        const xmlDoc = parser.parseFromString(textarea.value, "text/xml");
+                        const info = xmlDoc.querySelector("Info");
+                        const superficie = xmlDoc.querySelector("Superficie");
+                        const poblacion = xmlDoc.querySelector("Poblacion");
+                        const densidad = poblacion?.getAttribute("Densidad");
+
+                        if (!info || !superficie || !poblacion || densidad === null) {
+                            textarea.value = estructuraFija;
+                            alert("No puedes borrar la estructura XML. Solo edita los valores.");
+                        }
+                    } catch {
+                        textarea.value = estructuraFija;
+                        alert("Contenido inválido. Solo edita los valores entre las etiquetas.");
+                    }
+                });
+    </script>
+}

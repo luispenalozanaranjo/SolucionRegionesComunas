@@ -1,0 +1,62 @@
+﻿@model List<MvcAppPrueba.Models.ComunaModel>
+@{
+    ViewBag.Title = "Comunas";
+}
+
+<div class="container mt-5">
+    <h2 class="mb-4">Comunas de la Región @ViewBag.NombreRegion</h2>
+
+    @* MENSAJE DE ÉXITO *@
+    @if (TempData["Mensaje"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert" id="mensaje-alerta">
+            @TempData["Mensaje"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+
+        <script>
+            setTimeout(() => {
+                const alert = document.getElementById('mensaje-alerta');
+                if (alert) {
+                    alert.classList.remove('show');
+                    alert.classList.add('fade');
+                    alert.style.display = 'none';
+                }
+            }, 60000); // Ocultar en 60 segundos
+        </script>
+    }
+
+    <a asp-action="CrearComuna" asp-route-idRegion="@ViewBag.IdRegion" asp-route-NombreRegion="@ViewBag.NombreRegion" class="btn btn-success mb-3">Agregar</a>
+
+    <table class="table table-bordered table-striped">
+        <thead class="table-dark">
+            <tr>
+                <th>Comuna</th>
+                <th>Superficie (km²)</th>
+                <th>Población</th>
+                <th>Densidad (hab/km²)</th>
+                <th>Acción</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var comuna in Model)
+            {
+                <tr>
+                    <td>@comuna.Comuna</td>
+                    <td>@comuna.Superficie</td>
+                    <td>@comuna.Poblacion</td>
+                    <td>@comuna.Densidad</td>
+                    <td>
+                        <a asp-action="CrearComuna"
+                           asp-route-idRegion="@ViewBag.IdRegion"
+                           asp-route-idComuna="@comuna.IdComuna"
+                           asp-route-NombreRegion="@ViewBag.NombreRegion"
+                           class="btn btn-warning btn-sm">Editar</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <a asp-action="Index" class="btn btn-secondary">Volver a regiones</a>
+</div>
