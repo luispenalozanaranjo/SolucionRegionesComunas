@@ -201,12 +201,12 @@ INSERT INTO Region (IdRegion, Region) VALUES (16, 'Ñuble');
 
 --Comuna
 
-INSERT INTO Comuna (IdComuna, IdRegion, Comuna, InformacionAdicional) VALUES (1, 15, 'Arica', '<info><superficie>4799.4</superficie><Poblacion Densidad="51.6">247552</Poblacion></info>');
-INSERT INTO Comuna (IdComuna, IdRegion, Comuna, InformacionAdicional) VALUES (2, 15, 'Camarones', '<info><superficie>3927</superficie><Poblacion Densidad="0.31">1233</Poblacion></info>');
-INSERT INTO Comuna (IdComuna, IdRegion, Comuna, InformacionAdicional) VALUES (3, 15, 'Putre', '<info><superficie>5902.5</superficie><Poblacion Densidad="0.43">2515</Poblacion></info>');
+INSERT INTO Comuna (IdComuna, IdRegion, Comuna, InformacionAdicional) VALUES (1, 15, 'Arica', '<Info><Superficie>4799.4</Superficie><Poblacion Densidad="51.6">247552</Poblacion></Info>');
+INSERT INTO Comuna (IdComuna, IdRegion, Comuna, InformacionAdicional) VALUES (2, 15, 'Camarones', '<Info><Superficie>3927</Superficie><Poblacion Densidad="0.31">1233</Poblacion></Info>');
+INSERT INTO Comuna (IdComuna, IdRegion, Comuna, InformacionAdicional) VALUES (3, 15, 'Putre', '<Info><Superficie>5902.5</Superficie><Poblacion Densidad="0.43">2515</Poblacion></Info>');
 INSERT INTO Comuna (IdComuna, IdRegion, Comuna, InformacionAdicional) VALUES (4, 15, 'General Lagos', '<Info><Superficie>10400</Superficie><Poblacion Densidad="0.19">2000</Poblacion></Info>');
-INSERT INTO Comuna (IdComuna, IdRegion, Comuna, InformacionAdicional) VALUES (5, 1, 'Iquiqueu', '<info><superficie>2242.1</superficie><Poblacion Densidad="99.6">223463</Poblacion></info>');
-INSERT INTO Comuna (IdComuna, IdRegion, Comuna, InformacionAdicional) VALUES (6, 1, 'Alto Hospicio', '<info><superficie>572.9</superficie><Poblacion Densidad="226.8">129999</Poblacion></info>');
+INSERT INTO Comuna (IdComuna, IdRegion, Comuna, InformacionAdicional) VALUES (5, 1, 'Iquiqueu', '<Info><Superficie>2242.1</Superficie><Poblacion Densidad="99.6">223463</Poblacion></Info>');
+INSERT INTO Comuna (IdComuna, IdRegion, Comuna, InformacionAdicional) VALUES (6, 1, 'Alto Hospicio', '<Info><Superficie>572.9</Superficie><Poblacion Densidad="226.8">129999</Poblacion></Info>');
 INSERT INTO Comuna (IdComuna, IdRegion, Comuna, InformacionAdicional) VALUES (7, 1, 'Pozo Almonte', '<Info><Superficie>13765.8</Superficie><Poblacion Densidad="1.28">17656</Poblacion></Info>');
 INSERT INTO Comuna (IdComuna, IdRegion, Comuna, InformacionAdicional) VALUES (8, 1, 'Camiña', '<Info><Superficie>2200</Superficie><Poblacion Densidad="0.62">1374</Poblacion></Info>');
 INSERT INTO Comuna (IdComuna, IdRegion, Comuna, InformacionAdicional) VALUES (9, 1, 'Colchane', '<Info><Superficie>4150</Superficie><Poblacion Densidad="0.23">950</Poblacion></Info>');
