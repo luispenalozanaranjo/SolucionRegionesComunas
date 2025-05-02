@@ -181,7 +181,8 @@ END;
 GO
 
 --Region
-
+	
+SET IDENTITY_INSERT Region ON;
 INSERT INTO Region (IdRegion, Region) VALUES (1, 'Tarapacá');
 INSERT INTO Region (IdRegion, Region) VALUES (2, 'Antofagasta');
 INSERT INTO Region (IdRegion, Region) VALUES (3, 'Atacama');
@@ -198,9 +199,11 @@ INSERT INTO Region (IdRegion, Region) VALUES (13, 'Metropolitana de Santiago');
 INSERT INTO Region (IdRegion, Region) VALUES (14, 'Los Ríos');
 INSERT INTO Region (IdRegion, Region) VALUES (15, 'Arica y Parinacota');
 INSERT INTO Region (IdRegion, Region) VALUES (16, 'Ñuble');
+SET IDENTITY_INSERT Region OFF;
 
 --Comuna
 
+SET IDENTITY_INSERT Comuna ON;
 INSERT INTO Comuna (IdComuna, IdRegion, Comuna, InformacionAdicional) VALUES (1, 15, 'Arica', '<Info><Superficie>4799.4</Superficie><Poblacion Densidad="51.6">247552</Poblacion></Info>');
 INSERT INTO Comuna (IdComuna, IdRegion, Comuna, InformacionAdicional) VALUES (2, 15, 'Camarones', '<Info><Superficie>3927</Superficie><Poblacion Densidad="0.31">1233</Poblacion></Info>');
 INSERT INTO Comuna (IdComuna, IdRegion, Comuna, InformacionAdicional) VALUES (3, 15, 'Putre', '<Info><Superficie>5902.5</Superficie><Poblacion Densidad="0.43">2515</Poblacion></Info>');
@@ -532,6 +535,7 @@ INSERT INTO Comuna (IdComuna, IdRegion, Comuna, InformacionAdicional) VALUES (32
 INSERT INTO Comuna (IdComuna, IdRegion, Comuna, InformacionAdicional) VALUES (329, 13, 'Isla de Maipo', '<Info><Superficie>189</Superficie><Poblacion Densidad="212.5">40171</Poblacion></Info>');
 INSERT INTO Comuna (IdComuna, IdRegion, Comuna, InformacionAdicional) VALUES (330, 13, 'Padre Hurtado', '<Info><Superficie>80</Superficie><Poblacion Densidad="915.9">74188</Poblacion></Info>');
 INSERT INTO Comuna (IdComuna, IdRegion, Comuna, InformacionAdicional) VALUES (331, 13, 'Peñaflor', '<Info><Superficie>69</Superficie><Poblacion Densidad="1464.6">101058</Poblacion></Info>');
+SET IDENTITY_INSERT Comuna OFF;
 
 SELECT 
     'INSERT INTO Region (IdRegion, Region) VALUES (' +
